@@ -14,6 +14,9 @@ namespace Energesis{
 
 bool Energesis_SHT31_Humidity::getSample( sensor_sample_t* sample ){
 
+  if (m_sht31 == nullptr)
+    return false;
+
   sample->type = SENSOR_TYPE_RELATIVE_HUMIDITY;
   sample->sensor_id = 0;
   sample->humidity = m_sht31->getRelativeHumidity();
